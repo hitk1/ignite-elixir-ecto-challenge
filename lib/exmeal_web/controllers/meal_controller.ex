@@ -10,7 +10,7 @@ defmodule ExmealWeb.MealsController do
     with {:ok, %Meal{} = meal} <- Exmeal.create_meal(params) do
       conn
       |> put_status(:created)
-      |> render("meal_created.json", meal: meal)
+      |> render("create.json", meal: meal)
     end
   end
 

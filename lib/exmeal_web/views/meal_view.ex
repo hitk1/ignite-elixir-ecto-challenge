@@ -3,12 +3,12 @@ defmodule ExmealWeb.MealsView do
 
   alias Exmeal.Meal
 
-  def render("meal_created.json", %{meal: %Meal{} = meal}) do
+  def render("create.json", %{meal: %Meal{} = meal}) do
     %{
       message: "Meal created successfully!",
       meal: %{
         id: meal.id,
-        descricao: meal.descricao
+        description: meal.description
       }
     }
   end
@@ -16,9 +16,9 @@ defmodule ExmealWeb.MealsView do
   def render("meal.json", %{meal: %Meal{} = meal}) do
     %{
       id: meal.id,
-      descricao: meal.descricao,
-      data: meal.data,
-      calorias: meal.calorias
+      description: meal.description,
+      date: meal.date,
+      calories: meal.calories
     }
   end
 end

@@ -4,12 +4,12 @@ defmodule Exmeal.Meal do
   import Ecto.Changeset
 
   @primary_key {:id, :binary_id, autogenerate: true}
-  @required_params [:descricao, :data, :calorias]
+  @required_params [:description, :date, :calories]
 
   schema "meals" do
-    field(:descricao, :string)
-    field(:data, :date)
-    field(:calorias, :integer)
+    field(:description, :string)
+    field(:date, :date)
+    field(:calories, :integer)
 
     timestamps()
   end

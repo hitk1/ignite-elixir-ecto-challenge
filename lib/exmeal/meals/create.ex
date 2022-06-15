@@ -11,6 +11,6 @@ defmodule Exmeal.Meals.Create do
   defp deal_result_insert({:ok, %Meal{}} = success), do: success
 
   defp deal_result_insert({:error, reason}) do
-    {:error, Error.build(:bad_request, reason)}
+    {:error, Error.build(reason, :bad_request)}
   end
 end

@@ -25,8 +25,8 @@ defmodule ExmealWeb.MealsController do
   def delete(conn, %{"id" => id}) do
     with {:ok, _result} <- Exmeal.delete_meal(id) do
       conn
-      |> put_status(:ok)
-      |> json(%{message: "Meal deleted succesfully!"})
+      |> put_status(:no_content)
+      |> text("")
     end
   end
 

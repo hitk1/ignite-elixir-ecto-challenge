@@ -4,11 +4,14 @@ defmodule Exmeal.Meals.Update do
 
   def call(%{"id" => id} = params) do
     with {:ok, uuid} <- UUID.cast(id),
-         meal <- Repo.get(Meal, uuid) do
+         %Meal{} = meal <- Repo.get(Meal, uuid) do
       execute_update(meal, params)
     else
-      :error -> {:error, Error.build_invalid_id()}
-      nil -> {:error, Error.build_not_found()}
+      nil ->
+        {:error, Error.build_not_found()}
+
+      :error ->
+        {:error, Error.build_not_found()}
     end
   end
 

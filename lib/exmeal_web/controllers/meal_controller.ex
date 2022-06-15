@@ -29,4 +29,12 @@ defmodule ExmealWeb.MealsController do
       |> json(%{message: "Meal deleted succesfully!"})
     end
   end
+
+  def update(conn, params) do
+    with {:ok, %Meal{} = meal} <- Exmeal.update_meal(params) do
+      conn
+      |> put_status(:ok)
+      |> render("meal.json", meal: meal)
+    end
+  end
 end

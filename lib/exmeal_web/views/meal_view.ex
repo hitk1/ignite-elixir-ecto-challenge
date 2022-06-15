@@ -12,4 +12,13 @@ defmodule ExmealWeb.MealsView do
       }
     }
   end
+
+  def render("meal.json", %{meal: %Meal{} = meal}) do
+    %{
+      id: meal.id,
+      descricao: meal.descricao,
+      data: meal.data,
+      calorias: meal.calorias
+    }
+  end
 end
